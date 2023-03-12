@@ -14,6 +14,11 @@ struct producto{
     int id;
 };
 
+struct Carrito{
+    int* id;
+    int* cantidad;
+};
+
 
 void leer_archivo_csv(char *archivo, struct producto *productos, int *num_productos) {
     FILE *fp;
@@ -81,7 +86,7 @@ int *agregar_producto(struct producto *productos, int *carrito[6][2]){
         return 0;
     }
     productos[id].cantidad -= cantidad;
-    carrito[id][1] += cantidad;
+    carrito[id-1][1] += cantidad;
     return 1;
 }
 
@@ -184,13 +189,15 @@ void menu(){
     leer_archivo_csv("prueba.csv", productos, &num_productos);
 
     printf("Se leyeron %d productos del archivo:\n", num_productos);
-    for (int i = 0; i < num_productos; i++) {
-        printf("%s, %s, %d, %d, %d\n", productos[i].nombre, productos[i].descripcion, productos[i].precio, productos[i].cantidad, productos[i].id);
-    }
+
+    struct carrito *carritos;
+    // carritos.cantidad = malloc(5*sizeof(int));
+    // carritos.id = malloc(5*sizeof(int));
+
 
     while(1){
 
-        int opcion;
+        int opcion ;
         printf("Buenos dias ¿Que desea hacer? \n");
 
         printf("¿Que desea hacer? \n");
@@ -202,10 +209,13 @@ void menu(){
         printf("6. Salir\n");
 
         scanf("%d", &opcion);
+
+
         switch(opcion){
             case 1:
                 mostrar_productos(&productos);
                 break;
+
             case 2:
                 a = agregar_producto(&productos, &carrito);
                 if (a == 0){
@@ -238,8 +248,7 @@ void menu(){
                 break;
         }
     }
-}
 
-int main(){
+}int main(){
     menu();
 }
