@@ -1,0 +1,3 @@
+Factura de compra
+Nombre: SmartphoneCosto: 999
+Costo total: 999.000000
