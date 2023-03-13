@@ -2,3 +2,4 @@ Factura de compra
 Nombre: Costo: 0
 Costo total: 0.000000
 
+https://docs.google.com/document/d/1OHxby-_JZVMSbY2Hjk8t-BxAbqPWCDbq8KizTHww33I/edit?usp=drivesdk
