@@ -1,3 +1,4 @@
 Factura de compra
 Nombre: Costo: 0
 Costo total: 0.000000
+
